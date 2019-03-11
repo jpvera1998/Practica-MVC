@@ -1,0 +1,16 @@
+﻿
+@model Lab.Demo.Capas.Entity.Products
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+<p>
+    <b>ID del producto </b> @Model.ProductID <br />
+    <b>Nombre del producto: </b> @Model.ProductName <br />
+
+</p>
+@Html.ActionLink("Ver Ordenes", "Ordenes", new { id = Model.ProductID })
+<br />
+@Html.ActionLink("Volver al listado", "Index")

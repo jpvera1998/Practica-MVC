@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Lab.Demo.Capas.Entity.TerritorieVM>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Check","Territories"))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TerritoryDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsSelected)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TerritoryDescription)
+            </td>
+            <td>
+                @Html.CheckBoxFor(x => item.IsSelected)
+            </td>
+        </tr>
+
+        }
+    </table>
+
+    <input type="submit" value="seleccionar" />
+}
+
+
+

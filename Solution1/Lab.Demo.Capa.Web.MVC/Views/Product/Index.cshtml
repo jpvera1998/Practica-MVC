@@ -1,0 +1,29 @@
+﻿
+@model IEnumerable<Lab.Demo.Capas.Entity.Products>
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    @Html.TextBox("search")<input type="submit" value="Search" />
+}
+
+<table class="table">
+    <tr>
+        <td>Productos</td>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.ProductName</td>
+            <td>@Html.ActionLink("Ver detalles", "Detalles", new { id = item.ProductID })</td>
+
+        </tr>
+    }
+
+
+</table>

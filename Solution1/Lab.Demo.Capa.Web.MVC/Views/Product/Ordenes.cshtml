@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Lab.Demo.Capas.Entity.Order_Details>
+@{
+    ViewBag.Title = "Ordenes";
+}
+
+<table>
+    <tr>
+        <td>Product ID</td>
+        <td>Precio de la unidad</td>
+        <td>Descuento</td>
+        <td>Cantidad</td>
+        <td>Orden</td>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductID</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.Discount</td>
+            <td>@item.Quantity</td>
+            <td>@item.OrderID</td>
+
+        </tr>
+    }
+</table>
+@Html.ActionLink("Ir al inicio", "Index", "Product")
