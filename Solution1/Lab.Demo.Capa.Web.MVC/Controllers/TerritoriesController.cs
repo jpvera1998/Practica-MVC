@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Lab.Demo.Capa.Logic;
 using Lab.Demo.Capas.Entity;
 using Lab.Demo.Capas.Data;
+using System.Text;
 namespace Lab.Demo.Capa.Web.MVC.Controllers
 {
     public class TerritoriesController : Controller
@@ -17,52 +18,77 @@ namespace Lab.Demo.Capa.Web.MVC.Controllers
             this.territoriesLogic = new TerritoriesLogic();
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
             return View(this.territoriesLogic.DarLaLista());
         }
-        [HttpPost]
-        public ActionResult Check(List<TerritorieVM> lista)
-        {
-           
-            
-            List<TerritorieVM> chekeados = this.territoriesLogic.GetChecked(lista);
-                return View(chekeados);
-           
-        }
-    
 
-
-        //public ActionResult Index()
-        //{
-        //    var lista = this.territoriesLogic.Territory();
-
-        //    List<TerritorieVM> ListOfVM = new List<TerritorieVM>();
-
-        //    foreach(var item in lista)
-        //    {
-        //        ListOfVM.Add(new TerritorieVM() {
-        //            TerritoryDescription = item.TerritoryDescription,
-        //            IsSelected = false
-                    
-        //        });
-        //    }
-
-        //    return View(ListOfVM);
-        //}
-        
         //[HttpPost]
-        //public ActionResult SelectedItem(List<TerritorieVM> viewModel)
+        //public string Index(IEnumerable<TerritorieVM> lista)
         //{
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.Append("Your selected -");
+
+
+        //    //foreach (var item in lista)
+        //    //{
+        //    //    if (item.IsSelected == true)
+        //    //    {
+        //    //        sb.Append(item.TerritoryDescription + ",");
+
+
+        //    //    }
+
+        //    //}
+
+        //    //return sb.ToString();
+
+
+
+        //    if (lista.Where(x=>x.IsSelected==true).Count()==0)
+        //    {
+        //        return "No seleccionaste nada vieja";
+        //    }
+        //    else
+        //    {
+
+
+
+        //        foreach (TerritorieVM territorie in lista)
+        //        {
+        //            if (territorie.IsSelected)
+        //            {
+        //                sb.Append(territorie.TerritoryDescription + ",");
+        //            }
+        //        }
+        //        return sb.ToString();
+        //    }
+        //}
+
+        [HttpPost]
+        public ActionResult Index(IEnumerable<TerritorieVM> lista)
+        {
+
+            List<TerritorieVM> SelectedList = new List<TerritorieVM>();
             
-        //    return View(viewModel);
+            if (lista.Where(x => x.IsSelected == true).Count() == 0)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
 
-        //}
+                foreach (var item in lista)
+                {
+                    if (item.IsSelected)
+                    {
+                        SelectedList.Add(item);
+                    }
+                }
+                return View(SelectedList);
+            }
+        }
 
-        //public ActionResult SelectedList(List<Territories> lista)
-        //{
-        //    return View(lista);
-        //}
-       
     }
 }

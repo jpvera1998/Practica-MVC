@@ -10,13 +10,24 @@ namespace Lab.Demo.Capas.Entity
 {
     public class TerritorieVM
     {
-     
+
 
         [Required]
         [StringLength(50)]
         public string TerritoryDescription { get; set; }
 
-       
-        public Boolean IsSelected { get; set; }
+        private bool selected;
+
+        public Boolean IsSelected
+        {
+            get => selected = false;
+            set => selected = true;
+        }
+
+        public int?[] IDList { get; set; }
+
+        public int ID { get; set; }
+
+        public List<Int32> ListID { get; set; }
     }
 }

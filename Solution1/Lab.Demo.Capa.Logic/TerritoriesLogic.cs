@@ -17,25 +17,6 @@ namespace Lab.Demo.Capa.Logic
 
         }
         
-
-        public IEnumerable<Territories> Territory()
-        {
-
-            return this.context.Territories.ToList();
-        }
-
-        public ICollection<TerritorieVM> ListOFTheSelectedItems { get; set; }
-
-        public void AddtoTheList(List<TerritorieVM> newTerritorie)
-        {
-            foreach(var item in newTerritorie)
-            {
-                ListOFTheSelectedItems.Add(new TerritorieVM() {
-                    TerritoryDescription=item.TerritoryDescription
-                });
-            }
-        }
-
         public List<TerritorieVM> DarLaLista()
         {
             var listaVM = new List<TerritorieVM>();
@@ -46,39 +27,21 @@ namespace Lab.Demo.Capa.Logic
             {
                 listaVM.Add(new TerritorieVM() {
                     TerritoryDescription = lista[i].TerritoryDescription,
-                    IsSelected = false
+                    ID=i
+                   
                 });
             }
 
             return listaVM;
         }
 
-
-        public List<TerritorieVM> GetChecked(List<TerritorieVM> lista)
+        public List<Int32> DarLaListaDeID()
         {
-            List<Territories> territories = this.context.Territories.ToList();
-            for (int i = 0; i < lista.Count(); i++)
-            {
-                lista[i].TerritoryDescription = territories[i].TerritoryDescription;
-            }
+            TerritorieVM vM = new TerritorieVM();
 
-
-            List<TerritorieVM> nueva = new List<TerritorieVM>();
-
-            for (int i = 0; i < lista.Count(); i++)
-            {
-                if (lista[i].IsSelected == true)
-                {
-                    TerritorieVM nuevoTer = new TerritorieVM()
-                    {
-                        TerritoryDescription = lista[i].TerritoryDescription,
-                        IsSelected = true
-                    };
-                    nueva.Add(nuevoTer);
-                }
-            }
-            return nueva;
+            return vM.ListID;
         }
+       
 
     }
 }

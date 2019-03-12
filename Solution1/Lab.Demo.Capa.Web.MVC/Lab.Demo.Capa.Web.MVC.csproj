@@ -129,8 +129,8 @@
     <Content Include="Views\Product\Detalles.cshtml" />
     <Content Include="Views\Product\Ordenes.cshtml" />
     <Content Include="Views\Product\AddView.cshtml" />
-    <Content Include="Views\Territories\Check.cshtml" />
     <Content Include="Views\Territories\Index.cshtml" />
+    <Content Include="Views\Territories\EditorTemplates\TerritorieVM.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
