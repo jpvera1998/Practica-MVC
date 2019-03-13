@@ -26,8 +26,8 @@ namespace Lab.Demo.Capa.Logic
             for(int i=0; i < lista.Count(); i++)
             {
                 listaVM.Add(new TerritorieVM() {
-                    TerritoryDescription = lista[i].TerritoryDescription,
-                    ID=i
+                    TerritoryDescription = lista[i].TerritoryDescription
+                    
                    
                 });
             }
@@ -35,12 +35,6 @@ namespace Lab.Demo.Capa.Logic
             return listaVM;
         }
 
-        public List<Int32> DarLaListaDeID()
-        {
-            TerritorieVM vM = new TerritorieVM();
-
-            return vM.ListID;
-        }
        
 
     }
