@@ -24,10 +24,5 @@ namespace Lab.Demo.Capas.Entity
             set => selected = true;
         }
 
-        public int?[] IDList { get; set; }
-
-        public int ID { get; set; }
-
-        public List<Int32> ListID { get; set; }
     }
 }

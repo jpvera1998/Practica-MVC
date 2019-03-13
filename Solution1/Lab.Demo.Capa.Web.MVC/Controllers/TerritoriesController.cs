@@ -24,47 +24,7 @@ namespace Lab.Demo.Capa.Web.MVC.Controllers
             return View(this.territoriesLogic.DarLaLista());
         }
 
-        //[HttpPost]
-        //public string Index(IEnumerable<TerritorieVM> lista)
-        //{
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.Append("Your selected -");
-
-
-        //    //foreach (var item in lista)
-        //    //{
-        //    //    if (item.IsSelected == true)
-        //    //    {
-        //    //        sb.Append(item.TerritoryDescription + ",");
-
-
-        //    //    }
-
-        //    //}
-
-        //    //return sb.ToString();
-
-
-
-        //    if (lista.Where(x=>x.IsSelected==true).Count()==0)
-        //    {
-        //        return "No seleccionaste nada vieja";
-        //    }
-        //    else
-        //    {
-
-
-
-        //        foreach (TerritorieVM territorie in lista)
-        //        {
-        //            if (territorie.IsSelected)
-        //            {
-        //                sb.Append(territorie.TerritoryDescription + ",");
-        //            }
-        //        }
-        //        return sb.ToString();
-        //    }
-        //}
+        
 
         [HttpPost]
         public ActionResult Index(IEnumerable<TerritorieVM> lista)
